@@ -3,9 +3,11 @@ import Router from 'vue-router'
 // 导入刚才编写的组件
 import AppIndex from '@/components/home/AppIndex'
 import Login from '@/components/Login'
+import Register from '@/components/Register'
 import Home from '@/components/Home'
 import LibraryIndex from '../components/library/LibraryIndex'
-
+import Admin from '../components/admin/Admin'
+import Jotter from '../components/jotter/Jotter'
 Vue.use(Router)
 
 export default new Router({
@@ -27,6 +29,22 @@ export default new Router({
           }
         },
         {
+          path: '/jotter',
+          name: 'Jotter',
+          component: Jotter,
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: '/admin',
+          name: 'Admin',
+          component: Admin,
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
           path: '/library',
           name: 'Library',
           component: LibraryIndex,
@@ -40,7 +58,12 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
-    }
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
+    },
   ]
 })
 
